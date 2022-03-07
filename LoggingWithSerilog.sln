@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingWithSerilog", "LoggingWithSerilog\LoggingWithSerilog.csproj", "{C9C651C4-226C-44E3-947A-84ED14EAAD33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingWithSerilog", "LoggingWithSerilog\LoggingWithSerilog.csproj", "{C9C651C4-226C-44E3-947A-84ED14EAAD33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogLoggerConsole", "SerilogLoggerConsole\SerilogLoggerConsole.csproj", "{E4AAE2E9-FC3B-45B8-A6CE-ED40D07CF1FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerilogLoggerConsole", "SerilogLoggerConsole\SerilogLoggerConsole.csproj", "{E4AAE2E9-FC3B-45B8-A6CE-ED40D07CF1FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiApplication", "WebApiApplication\WebApiApplication.csproj", "{8CCA4AB3-6350-42B3-9179-E1DF4F6C6792}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E4AAE2E9-FC3B-45B8-A6CE-ED40D07CF1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4AAE2E9-FC3B-45B8-A6CE-ED40D07CF1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4AAE2E9-FC3B-45B8-A6CE-ED40D07CF1FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CCA4AB3-6350-42B3-9179-E1DF4F6C6792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCA4AB3-6350-42B3-9179-E1DF4F6C6792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCA4AB3-6350-42B3-9179-E1DF4F6C6792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCA4AB3-6350-42B3-9179-E1DF4F6C6792}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
