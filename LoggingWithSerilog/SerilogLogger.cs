@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using Serilog.Events;
+using Serilog.Exceptions;
 using Serilog.Formatting.Compact;
 using System;
 using System.Configuration;
@@ -36,6 +37,7 @@ namespace LoggingWithSerilog
                 .WriteTo.File(path: _usageLoggerSink)
                 .CreateLogger();
 
+            // If using Serilog.Exceptions nuget pkg, below _errorLogger is not required.
             _errorLogger = new LoggerConfiguration()
                 .WriteTo.File(path: _errorLoggerSink)
                 .CreateLogger();
@@ -47,6 +49,7 @@ namespace LoggingWithSerilog
                 .Enrich.WithMachineName()
                 .Enrich.WithProperty("Assembly", $"{executingAssembly.Name}")
                 .Enrich.WithProperty("Version", $"{executingAssembly.Version}")
+                .Enrich.WithExceptionDetails() // Using Serilog.Exceptions 
 
                 .WriteTo.File(path: _diagnosticLoggerSink)
                 .CreateLogger();
