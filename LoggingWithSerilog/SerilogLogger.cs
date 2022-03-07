@@ -1,7 +1,9 @@
 ﻿using Serilog;
 using Serilog.Events;
+using Serilog.Formatting.Compact;
 using System;
 using System.Configuration;
+using System.Reflection;
 
 namespace LoggingWithSerilog
 {
@@ -19,11 +21,18 @@ namespace LoggingWithSerilog
 
         static SerilogLogger()
         {
+            var executingAssembly = Assembly.GetExecutingAssembly().GetName();
+            
             _perfLogger = new LoggerConfiguration()
-                .WriteTo.File(path: _perfLoggerSink)
+                .WriteTo.File(new RenderedCompactJsonFormatter(), path: _perfLoggerSink)
                 .CreateLogger();
 
             _usageLogger = new LoggerConfiguration()
+
+                // Define debug level
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+
                 .WriteTo.File(path: _usageLoggerSink)
                 .CreateLogger();
 
@@ -32,6 +41,13 @@ namespace LoggingWithSerilog
                 .CreateLogger();
 
             _diagnosticLogger = new LoggerConfiguration()
+
+                // Enrichers
+                .Enrich.FromLogContext()
+                .Enrich.WithMachineName()
+                .Enrich.WithProperty("Assembly", $"{executingAssembly.Name}")
+                .Enrich.WithProperty("Version", $"{executingAssembly.Version}")
+
                 .WriteTo.File(path: _diagnosticLoggerSink)
                 .CreateLogger();
         }
